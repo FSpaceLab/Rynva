@@ -19,10 +19,10 @@ const char *ssid = "<SSID>";
 const char *password = "<PASSWORD>";
 
 // Cloud iot details.
-const char *project_id = "iot-core-test-284714";
-const char *location = "europe-west1";
-const char *registry_id = "iot-sample-registry";
-const char *device_id = "iot-sample-device";
+const char *project_id = "<PROJECT_ID>";
+const char *location = "<PROJECT_LOCATION>";
+const char *registry_id = "<REGISTRY_ID>";
+const char *device_id = "<DEVICE_ID>";
 
 // Configuration for NTP
 const char* ntp_primary = "pool.ntp.org";

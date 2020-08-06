@@ -17,6 +17,9 @@
 
 HTU21D myHumidity;
 
+unsigned long lastMillis = 0;
+
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
@@ -25,7 +28,6 @@ void setup() {
   setupCloudIoT();
 }
 
-unsigned long lastMillis = 0;
 void loop() {
   mqtt->loop();
   delay(10);  // <- fixes some issues with WiFi stability
@@ -37,11 +39,12 @@ void loop() {
 
   // TODO: replace with your code
   // publish a message roughly every second.
-  if (millis() - lastMillis > 6000) {
+  if (millis() - lastMillis > 60000) {
     lastMillis = millis();
 //    //publishTelemetry(mqttClient, "/sensors", getDefaultSensor());
-    publishTelemetry("[Temperaature: " + (String)myHumidity.readTemperature() + " °C]     [Humidity: " + (String)myHumidity.readHumidity() + " %]");
+    publishTelemetry("Hren");
     //publishTelemetry("Sukaaaaa AAAAAAA!!!");
     Serial.println("Pub/Sub Send");
   }
 }
+

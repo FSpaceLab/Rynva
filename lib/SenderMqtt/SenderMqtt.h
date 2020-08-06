@@ -75,12 +75,17 @@ void setupWifi() {
   }
 }
 
+void messageReceiver(String &topic, String &payload) {
+  Serial.println("incoming: " + topic + " - " + payload);
+}
+
 void connectWifi() {
   Serial.print("checking wifi...");
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
     delay(1000);
   }
+  mqttClient->onMessage(messageReceiver);
 }
 
 ///////////////////////////////
